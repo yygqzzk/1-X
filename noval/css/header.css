@@ -1,0 +1,23 @@
+header{
+	height: 60px;
+	background-color: #fb6638;
+}
+.header-bar{
+	height: 60;
+	display: flex;
+	flex: center;
+}
+.logo a{
+	display: block;
+
+}
+nav a{
+	display: inline-block;
+	line-height: 60px;
+
+	padding: 0 20px;
+}
+nav a.now{
+	background-color: #555;
+	box-shadow: 0px 2px 8px rgba(0,0,0,0.3);	
+}

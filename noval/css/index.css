@@ -1,0 +1,34 @@
+.welcom-img{
+	background:url(../img/welcome.jpg) no-repeat left top;
+	height: 404px;
+	background-size: cover;
+}
+section{
+	margin: 40px 0;
+}
+section h1,section .info{
+	text-align: center;
+}
+.hot{
+	display: flex;
+	margin-top: 40px;
+	justify-content: space-between;
+	list-style-type: none;
+}
+.hot-img{
+	height: 240px;
+	box-shadow:  2px 3px 5px rgba(0,0,0,0.3);
+	overflow: hidden;
+}
+.hot-img img{
+	height: 100%;
+}
+.hot-text h4{
+	color: #fb6638;
+}
+.hot-text p{
+	height: 70px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	;
+}
