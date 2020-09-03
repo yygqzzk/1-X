@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="270px" height="480px" style="margin: 20px;border: 1px solid red;"></canvas>
+		<script type="text/javascript">
+			var book_income = {
+				"一月":"6500",
+				"二月":"5500",
+				"三月":"10500",
+				"四月":"8500",
+				"五月":"7500",
+				"六月":"5400",
+				"七月":"7500",
+				"八月":"6600",
+				"九月":"2300",
+				"十月":"3500",
+				"十一月":"5600",
+				"十二月":"16700",
+			};
+			var book_pay = {
+				"一月":"6500",
+				"二月":"5500",
+				"三月":"10500",
+				"四月":"8500",
+				"五月":"7500",
+				"六月":"5400",
+				"七月":"7500",
+				"八月":"6600",
+				"九月":"2300",
+				"十月":"3500",
+				"十一月":"5600",
+				"十二月":"16700",
+			};
+			window.onload = function(){
+				let canvas = document.getElementById("canvas");
+				let ctx = canvas.getContext('2d');
+				drawList(ctx);
+				drawIndex(ctx);
+				drawNumber(ctx);
+			}
+			function drawList(ctx){
+				ctx.strokeStyle='black';
+				ctx.beginPath();
+				for(let i=0;i<5;i++){
+					ctx.moveTo((270/4)*i,0);
+					ctx.lineTo((270/4)*i,480);
+				}
+				for(let j=0;j<14;j++){
+					ctx.moveTo(0,(480/13)*j);
+					ctx.lineTo(270,(480/13)*j);
+				}
+				ctx.moveTo(0,0);
+				ctx.lineTo(270/4,480/13);
+				ctx.stroke();
+			}
+			function drawIndex(ctx){
+				ctx.shadowOffsetX =1;
+				ctx.shadowOffsetY =1;
+				ctx.shadowBlur =2;
+				ctx.shadowColor = 'rgba(0,0,0,0.5)';
+				ctx.font = '14px serif';
+				ctx.fillText("月",10,30);
+				ctx.fillText("计",45,20);
+				ctx.fillText("收入",88,24);
+				ctx.fillText("支出",155,24);
+				ctx.fillText("总计",222,24);
+				let i=1;
+				for(let val in book_income){
+					ctx.fillText(val,15,480/13*i++);
+				}
+			}
+			function drawNumber(ctx){
+				let i=1;
+				for(let val in book_income){
+					ctx.fillText(book_income[val],85,24+480/13*i++);
+				}
+				let j=1;
+				for(let val in book_pay){
+					ctx.fillText(book_pay[val],155,24+480/13*j++);
+				}
+				let k=1;
+				let data = 0;
+				for(let val in book_pay){
+					data = book_income[val] - book_pay[val];
+					if(data<0){
+						ctx.fillStyle = "red";
+					}else{
+						ctx.fillStyle = "black";
+					}
+					ctx.fillText(data,225,24+480/13*k++);
+				}
+			}
+		</script>
+	</body>
+</html>

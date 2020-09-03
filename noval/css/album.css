@@ -1,0 +1,39 @@
+body,ul,li{
+	margin:0;
+	padding: 0;
+}
+ul{
+	list-style-type: none;
+}
+#img-box{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	margin: 0 auto;
+
+}
+@media only screen and (min-width:1330px ) {
+	#img-box{
+		width: 85%;
+	}
+}
+#img-box li{
+	width: 50%;
+	height: 50%;
+	transform-origin: left top;
+	transition: transform 0.5s;
+}
+#img-box li:nth-child(even){
+	transform-origin: right top;
+}
+#img-box li img{
+	width: 100%;
+}
+.rotateY{
+	transform:rotateY(360deg) ;
+	transition:transform 2s;
+}
+.scale{
+	transform: scale(2);
+	z-index:999;
+}
